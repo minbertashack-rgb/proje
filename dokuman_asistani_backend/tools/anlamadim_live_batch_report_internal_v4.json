@@ -1,0 +1,227 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "transport": "internal",
+  "transport_note": "internal transport Django icinde DRF APIClient kullanir; AI2 yine canli 8002 uzerinden cagrilir.",
+  "dev_server_note": "HTTP transport ile Django dev-server tarafinda baglanti kararsizligi gorulebilir; final kalite olcumunde internal daha kararlı olabilir.",
+  "username": "cemre_demo",
+  "ai2_ready": true,
+  "ai2_status": {
+    "ready": true,
+    "base_url": "http://127.0.0.1:8002",
+    "models_url": "http://127.0.0.1:8002/v1/models",
+    "expected_alias": "qwen-docverse",
+    "http_status": 200,
+    "attempted_at": 1774976002.691,
+    "message": "AI2 hazir: qwen-docverse bulundu.",
+    "model_ids": [
+      "qwen-docverse"
+    ],
+    "startup_action": "already_running"
+  },
+  "readable_summary": "toplam_parca: 6\nortalama_skor: 6.83\nortalama_cevap_suresi: 236.91s\nmin_cevap_suresi: 92.2s\nmax_cevap_suresi: 361.4s\nweak_one_liner: 1\nweak_very_simple: 0\nweak_glossary: 0\nweak_steps: 0\nweak_examples: 0\nweak_mini_quiz: 0\nfalse_dokumanda_yok: 0\nparca_tipi_dagilimi: header_row=1, numeric_row=1, plain_text=1, technical_label_row=1, technical_sql_note=1, very_short_note=1\nen_yavas_parca_tipleri: technical_sql_note=361.4s, numeric_row=347.29s, technical_label_row=233.79s\ntransport_turu: internal\nai2_hazir: True",
+  "summary": {
+    "sample_count": 6,
+    "total_piece_count": 6,
+    "toplam_parca": 6,
+    "avg_score": 6.83,
+    "ortalama_skor": 6.83,
+    "problem_counts": {
+      "weak_one_liner": 1
+    },
+    "weak_one_liner_count": 1,
+    "weak_very_simple_count": 0,
+    "false_dokumanda_yok_count": 0,
+    "weak_glossary_count": 0,
+    "weak_steps_count": 0,
+    "weak_examples_count": 0,
+    "weak_mini_quiz_count": 0,
+    "weak_one_liner": 1,
+    "weak_very_simple": 0,
+    "weak_glossary": 0,
+    "weak_steps": 0,
+    "weak_examples": 0,
+    "weak_mini_quiz": 0,
+    "false_dokumanda_yok": 0,
+    "avg_response_sec": 236.91,
+    "ortalama_cevap_suresi": 236.91,
+    "max_response_sec": 361.4,
+    "min_response_sec": 92.2,
+    "total_response_sec": 1421.44,
+    "min_cevap_suresi": 92.2,
+    "max_cevap_suresi": 361.4,
+    "parca_tipi_dagilimi": {
+      "plain_text": 1,
+      "technical_sql_note": 1,
+      "very_short_note": 1,
+      "numeric_row": 1,
+      "header_row": 1,
+      "technical_label_row": 1
+    },
+    "avg_response_by_piece_kind": {
+      "plain_text": 177.02,
+      "technical_sql_note": 361.4,
+      "very_short_note": 209.74,
+      "numeric_row": 347.29,
+      "header_row": 92.2,
+      "technical_label_row": 233.79
+    },
+    "slowest_piece_kinds": [
+      [
+        "technical_sql_note",
+        361.4
+      ],
+      [
+        "numeric_row",
+        347.29
+      ],
+      [
+        "technical_label_row",
+        233.79
+      ]
+    ],
+    "transport_turu": "internal",
+    "ai2_hazirlik_durumu": {
+      "ready": true,
+      "base_url": "http://127.0.0.1:8002",
+      "models_url": "http://127.0.0.1:8002/v1/models",
+      "expected_alias": "qwen-docverse",
+      "http_status": 200,
+      "attempted_at": 1774976002.691,
+      "message": "AI2 hazir: qwen-docverse bulundu.",
+      "model_ids": [
+        "qwen-docverse"
+      ],
+      "startup_action": "already_running"
+    }
+  },
+  "results": [
+    {
+      "parca_id": 36,
+      "adres": "txt:para:1",
+      "dokuman": "",
+      "piece_kind": "plain_text",
+      "snippet": "Bu bir deneme dokümanı. İçinde bazı terimler ve açıklamalar var.",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "Bu bir deneme dokümanı ve içinde terimler ve açıklamalar bulunuyor.",
+        "very_simple": "Bu bir deneme belgesi. İçinde bazı kelimeler ve anlamları var.",
+        "glossary_count": 4,
+        "steps_count": 4,
+        "examples_count": 3,
+        "trap": "Tuzak: 'açıklamalar' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 177.02,
+      "requested_max_tokens": 96
+    },
+    {
+      "parca_id": 38,
+      "adres": "txt:chunk:1",
+      "dokuman": "",
+      "piece_kind": "technical_sql_note",
+      "snippet": "RLS ve CDC ile OLTP sistemlerinde Telemetry toplamak için API Gateway arkasında JWT doğrulama yapılır.\nSQL örneği: SELECT u.id,",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "OLTP sistemlerinde telemetry verilerini toplamak için JWT doğrulaması yapılır.",
+        "very_simple": "Telemetry verilerini toplamak için JWT doğrulaması yapılır.",
+        "glossary_count": 4,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'RLS' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 361.4,
+      "requested_max_tokens": 96
+    },
+    {
+      "parca_id": 42,
+      "adres": "docx:p:1",
+      "dokuman": "",
+      "piece_kind": "very_short_note",
+      "snippet": "Test DOCX",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "Bu test, DOCX dosyasının nasıl çalıştığına dair basit bir açıklama içeriyor.",
+        "very_simple": "Bu test, DOCX dosyasını anlatıyor.",
+        "glossary_count": 1,
+        "steps_count": 4,
+        "examples_count": 3,
+        "trap": "Tuzak: 'DOCX' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 209.74,
+      "requested_max_tokens": 72
+    },
+    {
+      "parca_id": 45,
+      "adres": "docx:tablo:1:satir:2",
+      "dokuman": "",
+      "piece_kind": "numeric_row",
+      "snippet": "100 | 200 | 300",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "Tablodaki hucreler 100, 200 ve 300 degerlerini gosteriyor.",
+        "very_simple": "Tabloda 3 hucre var ve degerleri 100, 200 ve 300.\",\n\"g",
+        "glossary_count": 3,
+        "steps_count": 3,
+        "examples_count": 2,
+        "trap": "Tuzak: Bu sayilari metin disindan fiyat, skor veya miktar diye kesinlestirmeye calismak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 347.29,
+      "requested_max_tokens": 72
+    },
+    {
+      "parca_id": 44,
+      "adres": "docx:tablo:1:satir:1",
+      "dokuman": "",
+      "piece_kind": "header_row",
+      "snippet": "SUTUN1 | SUTUN2 | SUTUN3",
+      "dokumanda_yok": false,
+      "score": 6,
+      "problems": [
+        "weak_one_liner"
+      ],
+      "response": {
+        "one_liner": "Bu tablo, sutun isimleri olan basit bir etiket listesi.",
+        "very_simple": "Sutun1 | Sutun2 | Sutun3",
+        "glossary_count": 3,
+        "steps_count": 4,
+        "examples_count": 2,
+        "trap": "Tuzak: Etiket satirini veri satiri sanip kolon adlarini gercek deger gibi okumak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 92.2,
+      "requested_max_tokens": 72
+    },
+    {
+      "parca_id": 46,
+      "adres": "docx:tablo:1:satir:3",
+      "dokuman": "",
+      "piece_kind": "technical_label_row",
+      "snippet": "Excel: IF / XLOOKUP | A2 | B2",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "Excel'de IF ve XLOOKUP fonksiyonlarını kullanarak A2 hücre değerine göre B2 hücrenin değeri alınır.",
+        "very_simple": "Excel'de IF / XLOOKUP | A2 | B2",
+        "glossary_count": 4,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'IF' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 233.79,
+      "requested_max_tokens": 72
+    }
+  ]
+}

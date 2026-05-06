@@ -1,0 +1,46 @@
+﻿{
+    "runs":  [
+                 {
+                     "protects":  "upload contract, suspicious upload reddi, parser/ingestion, OCR fallback ve OCR signal",
+                     "name":  "upload_ingestion_ocr",
+                     "mode":  "release_shard",
+                     "pytest_args":  [
+                                         "dokuman/tests/test_upload_fields.py",
+                                         "dokuman/tests/test_ocr_ingestion.py",
+                                         "dokuman/tests/test_multiformat_ingestion.py",
+                                         "dokuman/tests/test_ingestion_contract.py",
+                                         "dokuman/tests/test_ingestion_quality.py",
+                                         "dokuman/tests/test_golden_parser_ingestion.py"
+                                     ]
+                 },
+                 {
+                     "protects":  "explain/anlamadim kalite floor\u0027u, evidence alignment, abstain, AI2 no-leak",
+                     "name":  "explain_evidence_ai",
+                     "mode":  "release_shard",
+                     "pytest_args":  [
+                                         "dokuman/tests/test_anlamadim_quality.py",
+                                         "dokuman/tests/test_special_chunk_explanations.py",
+                                         "dokuman/tests/test_rag_quality.py",
+                                         "dokuman/tests/test_rag_normalization.py",
+                                         "dokuman/tests/test_ai2_guardrails.py",
+                                         "dokuman/tests/test_ai2_runtime_tools.py",
+                                         "dokuman/tests/test_ai_eval_contracts.py"
+                                     ]
+                 },
+                 {
+                     "protects":  "auth/api contract, notes/history, throttle 429 payload, ownership isolation, no-leak",
+                     "name":  "api_security_notes",
+                     "mode":  "release_shard",
+                     "pytest_args":  [
+                                         "dokuman/tests/test_patch2_auth_error_shapes.py",
+                                         "dokuman/tests/test_patch3_explain_evidence_notes_shapes.py",
+                                         "dokuman/tests/test_patch6_throttle_shapes.py",
+                                         "dokuman/tests/test_views_hardening.py",
+                                         "dokuman/tests/test_notlar_productization.py",
+                                         "dokuman/tests/test_phase4_5_surfaces.py",
+                                         "dokuman/tests/test_export_readiness.py"
+                                     ]
+                 }
+             ],
+    "mode":  "release_shards"
+}

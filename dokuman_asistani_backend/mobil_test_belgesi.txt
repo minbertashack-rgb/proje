@@ -1,0 +1,27 @@
+﻿DOCVERSE MOBIL TEST BELGESI
+
+Baslik: Hucrede Enerji Uretimi
+
+1. Giris
+Hucreler yasamsal faaliyetlerini surdurebilmek icin enerjiye ihtiyac duyar. Bu enerjinin onemli bir bolumu ATP molekulu ile tasinir.
+
+2. ATP Nedir?
+ATP hucre icinde enerji tasiyan temel molekuldur. Kas kasilmasi, aktif tasima ve protein sentezi gibi olaylarda kullanilir.
+
+3. Glikoz ve Solunum
+Glikoz hucrelerin temel enerji kaynaklarindan biridir. Oksijenli solunumda glikoz parcalanarak ATP uretilir.
+
+4. Glikoliz
+Glikoliz sitoplazmada gerceklesir. Bir glikoz molekulu iki piruvat molekulune ayrilir.
+
+5. Elektron Tasima Zinciri
+Elektron tasima zinciri mitokondrinin ic zarinda gerceklesir ve en fazla ATP bu asamada uretilir.
+
+6. Ozet
+Hucrelerde enerji uretimi ATP ile iliskilidir. Glikoz, oksijenli solunum ve mitokondri bu surecin temel kavramlaridir.
+
+Terimler:
+ATP: Hucrenin enerji molekulu.
+Glikoz: Enerji kaynagi olan basit seker.
+Mitokondri: Enerji uretiminde gorev alan organel.
+Glikoliz: Glikozun ilk parcalanma asamasi.

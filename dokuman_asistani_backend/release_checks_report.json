@@ -1,0 +1,113 @@
+{
+  "python_version": "3.14.4",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "tesseract": "ready",
+  "tesseract_candidate": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+  "tesseract_source": "env:TESSERACT_CMD",
+  "tesseract_langs": [
+    "eng",
+    "osd",
+    "tur"
+  ],
+  "pymupdf": true,
+  "pymupdf_note": "PyMuPDF 1.27.2.2: Python bindings for the MuPDF 1.27.2 library.\nPython 3.14 running on win32 (64-bit).\n",
+  "gguf_candidates": [],
+  "ai2_candidate": "http://127.0.0.1:8002/v1",
+  "ai2_env": "http://127.0.0.1:8002/v1",
+  "ai2_model": "qwen-docverse",
+  "ai2_timeout": 600,
+  "debug": false,
+  "upload_limits": {
+    "min_bytes": 8,
+    "max_bytes": 26214400
+  },
+  "throttle_rates": {
+    "token_obtain": "10/min",
+    "token_refresh": "20/min",
+    "upload": "12/hour",
+    "anlamadim": "30/min",
+    "kanitli_cevap": "20/min",
+    "notes_write": "40/min"
+  },
+  "warnings": [],
+  "critical_issues": [],
+  "checks": [
+    {
+      "key": "python_version",
+      "status": "ok",
+      "summary": "Python version 3.14.4",
+      "detail": "Minimum required version is 3.10.",
+      "recommendation": ""
+    },
+    {
+      "key": "debug_mode",
+      "status": "ok",
+      "summary": "DEBUG kapali.",
+      "detail": "Production debug gate temiz.",
+      "recommendation": ""
+    },
+    {
+      "key": "secret_key",
+      "status": "ok",
+      "summary": "DJANGO_SECRET_KEY override edilmis.",
+      "detail": "",
+      "recommendation": ""
+    },
+    {
+      "key": "upload_limits",
+      "status": "ok",
+      "summary": "Upload byte limitleri makul gorunuyor.",
+      "detail": "min=8 max=26214400",
+      "recommendation": ""
+    },
+    {
+      "key": "throttle_rates",
+      "status": "ok",
+      "summary": "Riskli yuzey throttle rate'leri tanimli.",
+      "detail": "token_obtain=10/min, token_refresh=20/min, upload=12/hour, anlamadim=30/min, kanitli_cevap=20/min, notes_write=40/min",
+      "recommendation": ""
+    },
+    {
+      "key": "tesseract",
+      "status": "ok",
+      "summary": "Tesseract hazir.",
+      "detail": "candidate=C:\\Program Files\\Tesseract-OCR\\tesseract.exe langs=eng,osd,tur",
+      "recommendation": ""
+    },
+    {
+      "key": "ai2_runtime",
+      "status": "ok",
+      "summary": "AI2 base URL / model / timeout tanimli.",
+      "detail": "base_url=http://127.0.0.1:8002/v1 model=qwen-docverse timeout=600",
+      "recommendation": ""
+    },
+    {
+      "key": "local_model",
+      "status": "ok",
+      "summary": "Yerel model fallback zorunlu degil veya devre disi.",
+      "detail": "",
+      "recommendation": ""
+    },
+    {
+      "key": "cors_policy",
+      "status": "ok",
+      "summary": "CORS allow-all kapali.",
+      "detail": "",
+      "recommendation": ""
+    },
+    {
+      "key": "jwt_policy",
+      "status": "ok",
+      "summary": "SIMPLE_JWT lifetime ayarlari tanimli.",
+      "detail": "",
+      "recommendation": ""
+    }
+  ],
+  "blocker_count": 0,
+  "warning_count": 0,
+  "ok_count": 10,
+  "overall_status": "ok",
+  "config_recommendation": "ship",
+  "ai_model_mode": "remote",
+  "local_model_enabled": "0"
+}

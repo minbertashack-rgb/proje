@@ -1,0 +1,296 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "transport": "internal",
+  "transport_note": "internal transport Django icinde DRF APIClient kullanir; AI2 yine canli 8002 uzerinden cagrilir.",
+  "dev_server_note": "HTTP transport ile Django dev-server tarafinda baglanti kararsizligi gorulebilir; final kalite olcumunde internal daha kararlı olabilir.",
+  "username": "cemre_demo",
+  "ai2_ready": true,
+  "ai2_status": {
+    "ready": true,
+    "base_url": "http://127.0.0.1:8002",
+    "models_url": "http://127.0.0.1:8002/v1/models",
+    "expected_alias": "qwen-docverse",
+    "http_status": 200,
+    "attempted_at": 1774974287.199,
+    "message": "AI2 hazir: qwen-docverse bulundu.",
+    "model_ids": [
+      "qwen-docverse"
+    ],
+    "startup_action": "already_running"
+  },
+  "summary": {
+    "sample_count": 10,
+    "total_piece_count": 10,
+    "toplam_parca": 10,
+    "avg_score": 7.0,
+    "ortalama_skor": 7.0,
+    "problem_counts": {},
+    "weak_one_liner_count": 0,
+    "weak_very_simple_count": 0,
+    "false_dokumanda_yok_count": 0,
+    "weak_glossary_count": 0,
+    "weak_steps_count": 0,
+    "weak_examples_count": 0,
+    "weak_mini_quiz_count": 0,
+    "weak_one_liner": 0,
+    "weak_very_simple": 0,
+    "weak_glossary": 0,
+    "weak_steps": 0,
+    "weak_examples": 0,
+    "weak_mini_quiz": 0,
+    "false_dokumanda_yok": 0,
+    "avg_response_sec": 58.78,
+    "ortalama_cevap_suresi": 58.78,
+    "max_response_sec": 128.93,
+    "min_response_sec": 41.17,
+    "total_response_sec": 587.79,
+    "avg_response_by_piece_kind": {
+      "plain_text": 128.93,
+      "technical_sql_note": 60.36,
+      "very_short_note": 41.17,
+      "numeric_row": 48.37,
+      "header_row": 46.24,
+      "technical_label_row": 50.59
+    },
+    "slowest_piece_kinds": [
+      [
+        "plain_text",
+        128.93
+      ],
+      [
+        "technical_sql_note",
+        60.36
+      ],
+      [
+        "technical_label_row",
+        50.59
+      ]
+    ],
+    "transport_turu": "internal",
+    "ai2_hazirlik_durumu": {
+      "ready": true,
+      "base_url": "http://127.0.0.1:8002",
+      "models_url": "http://127.0.0.1:8002/v1/models",
+      "expected_alias": "qwen-docverse",
+      "http_status": 200,
+      "attempted_at": 1774974287.199,
+      "message": "AI2 hazir: qwen-docverse bulundu.",
+      "model_ids": [
+        "qwen-docverse"
+      ],
+      "startup_action": "already_running"
+    }
+  },
+  "results": [
+    {
+      "parca_id": 36,
+      "adres": "txt:para:1",
+      "dokuman": "",
+      "piece_kind": "plain_text",
+      "snippet": "Bu bir deneme dokümanı. İçinde bazı terimler ve açıklamalar var.",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "Bu bir deneme dokümanı.",
+        "very_simple": "Bu metin, açıklamalar, dokümanı, terimler gibi terimlerle su noktayi acikliyor: Bu bir deneme dokümanı.",
+        "glossary_count": 4,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'açıklamalar' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 128.93,
+      "requested_max_tokens": 96
+    },
+    {
+      "parca_id": 38,
+      "adres": "txt:chunk:1",
+      "dokuman": "",
+      "piece_kind": "technical_sql_note",
+      "snippet": "RLS ve CDC ile OLTP sistemlerinde Telemetry toplamak için API Gateway arkasında JWT doğrulama yapılır.\nSQL örneği: SELECT u.id,",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "RLS ve CDC ile OLTP sistemlerinde Telemetry toplamak için API Gateway arkasında JWT doğrulama yapılır.",
+        "very_simple": "Bu kisa notta RLS, CDC, OLTP ve bir SQL sorgusu birlikte geciyor.",
+        "glossary_count": 4,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'RLS' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 57.0,
+      "requested_max_tokens": 96
+    },
+    {
+      "parca_id": 42,
+      "adres": "docx:p:1",
+      "dokuman": "",
+      "piece_kind": "very_short_note",
+      "snippet": "Test DOCX",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "Bu kisa parca, 'DOCX' odakli bir not veya etiket veriyor.",
+        "very_simple": "Bu kisa not, DOCX, Test terimlerini aniyor ve ana fikir olarak sunu soyluyor: Bu kisa parca, 'DOCX' odakli bir not veya etiket veriyor.",
+        "glossary_count": 1,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'DOCX' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 41.17,
+      "requested_max_tokens": 72
+    },
+    {
+      "parca_id": 45,
+      "adres": "docx:tablo:1:satir:2",
+      "dokuman": "",
+      "piece_kind": "numeric_row",
+      "snippet": "100 | 200 | 300",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "Bu kisa satir, yan yana yazilmis 100, 200, 300 gibi sayisal degerler iceriyor; sutun basliklari olmadigi icin bu sayilarin anlami kesin degil.",
+        "very_simple": "Bu satirda 100, 200, 300 sayilari yan yana duruyor; sutun basliklari olmadigi icin bu sayilarin anlami burada kesinlesmiyor.",
+        "glossary_count": 3,
+        "steps_count": 3,
+        "examples_count": 2,
+        "trap": "Tuzak: Bu sayilari metin disindan fiyat, skor veya miktar diye kesinlestirmeye calismak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 48.37,
+      "requested_max_tokens": 72
+    },
+    {
+      "parca_id": 44,
+      "adres": "docx:tablo:1:satir:1",
+      "dokuman": "",
+      "piece_kind": "header_row",
+      "snippet": "SUTUN1 | SUTUN2 | SUTUN3",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "Bu satir, tablonun sutun etiketlerini veriyor: SUTUN1, SUTUN2, SUTUN3.",
+        "very_simple": "Bu satir, SUTUN1, SUTUN2, SUTUN3 adli kolon basliklarini veren ust satir gibi gorunuyor.",
+        "glossary_count": 3,
+        "steps_count": 3,
+        "examples_count": 2,
+        "trap": "Tuzak: Etiket satirini veri satiri sanip kolon adlarini gercek deger gibi okumak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 46.24,
+      "requested_max_tokens": 72
+    },
+    {
+      "parca_id": 46,
+      "adres": "docx:tablo:1:satir:3",
+      "dokuman": "",
+      "piece_kind": "technical_label_row",
+      "snippet": "Excel: IF / XLOOKUP | A2 | B2",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "Excel: IF / XLOOKUP | A2 | B2",
+        "very_simple": "Bu kisa not, IF, XLOOKUP, A2 terimlerini aniyor ve ana fikir olarak sunu soyluyor: Excel: IF / XLOOKUP | A2 | B2",
+        "glossary_count": 4,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'IF' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 50.56,
+      "requested_max_tokens": 72
+    },
+    {
+      "parca_id": 43,
+      "adres": "docx:p:2",
+      "dokuman": "",
+      "piece_kind": "technical_sql_note",
+      "snippet": "RLS, JWT, API Gateway gibi terimler gecsin. SQL: SELECT * FROM users WHERE id=1;",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "RLS, JWT, API Gateway gibi terimler gecsin.",
+        "very_simple": "Bu kisa notta RLS, JWT, API ve bir SQL sorgusu birlikte geciyor.",
+        "glossary_count": 4,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'RLS' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 63.73,
+      "requested_max_tokens": 96
+    },
+    {
+      "parca_id": 48,
+      "adres": "pdf:sayfa:2:para:1",
+      "dokuman": "",
+      "piece_kind": "technical_label_row",
+      "snippet": "PDF Test - Sayfa 2\nExcel: IF / XLOOKUP; TABLO: A|B|C",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "PDF Test - Sayfa 2 Excel: IF / XLOOKUP; TABLO: A|B|C",
+        "very_simple": "Bu metin, PDF, IF, XLOOKUP gibi terimlerle su noktayi acikliyor: PDF Test - Sayfa 2 Excel: IF / XLOOKUP; TABLO: A|B|C",
+        "glossary_count": 4,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'PDF' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 51.45,
+      "requested_max_tokens": 72
+    },
+    {
+      "parca_id": 47,
+      "adres": "pdf:sayfa:1:para:1",
+      "dokuman": "",
+      "piece_kind": "technical_label_row",
+      "snippet": "PDF Test - Sayfa 1\nJWT / RLS / SQL: SELECT * FROM logs WHERE ts > NOW();",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "PDF Test - Sayfa 1 JWT / RLS / SQL: SELECT * FROM logs WHERE ts > NOW();",
+        "very_simple": "Bu kisa notta PDF, JWT, RLS ve bir SQL sorgusu birlikte geciyor.",
+        "glossary_count": 4,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'PDF' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 49.69,
+      "requested_max_tokens": 72
+    },
+    {
+      "parca_id": 51,
+      "adres": "xlsx:Sayfa1:satir:3",
+      "dokuman": "",
+      "piece_kind": "technical_label_row",
+      "snippet": "Excel | IF | XLOOKUP",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "Bu kisa satir, Excel, IF, XLOOKUP gibi teknik terimleri yan yana listeliyor.",
+        "very_simple": "Bu satir, Excel, IF, XLOOKUP terimlerini ayni notta birlikte veriyor.",
+        "glossary_count": 2,
+        "steps_count": 3,
+        "examples_count": 2,
+        "trap": "Tuzak: 'IF' terimini diger etiketlerden kopuk okuyup satirin bir liste oldugunu kacirmak.",
+        "mini_quiz_count": 3
+      },
+      "response_sec": 50.65,
+      "requested_max_tokens": 72
+    }
+  ]
+}

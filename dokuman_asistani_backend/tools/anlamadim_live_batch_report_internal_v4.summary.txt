@@ -1,0 +1,16 @@
+toplam_parca: 6
+ortalama_skor: 6.83
+ortalama_cevap_suresi: 236.91s
+min_cevap_suresi: 92.2s
+max_cevap_suresi: 361.4s
+weak_one_liner: 1
+weak_very_simple: 0
+weak_glossary: 0
+weak_steps: 0
+weak_examples: 0
+weak_mini_quiz: 0
+false_dokumanda_yok: 0
+parca_tipi_dagilimi: header_row=1, numeric_row=1, plain_text=1, technical_label_row=1, technical_sql_note=1, very_short_note=1
+en_yavas_parca_tipleri: technical_sql_note=361.4s, numeric_row=347.29s, technical_label_row=233.79s
+transport_turu: internal
+ai2_hazir: True

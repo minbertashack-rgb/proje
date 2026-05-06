@@ -1,0 +1,9 @@
+[19/Apr/2026 11:48:18] "POST /api/kimlik/token/ HTTP/1.1" 200 560
+Metric store write skipped for olay_turu=ingestion_skorlandi kaynak_modul=ingestion.heading_parser error_type=OperationalError
+[19/Apr/2026 11:48:18] "POST /api/dokuman-asistani/dokumanlar/yukle/ HTTP/1.1" 201 990
+[19/Apr/2026 11:48:19] "GET /api/dokuman-asistani/dokumanlar/33/parcalar/ HTTP/1.1" 200 1525
+[19/Apr/2026 11:48:19] "POST /api/dokuman-asistani/parcalar/74/anlamadim-v2/ HTTP/1.1" 500 145
+[19/Apr/2026 11:49:06] "POST /api/kimlik/token/ HTTP/1.1" 200 560
+[19/Apr/2026 11:49:07] "POST /api/dokuman-asistani/dokumanlar/yukle/ HTTP/1.1" 201 990
+[19/Apr/2026 11:49:07] "GET /api/dokuman-asistani/dokumanlar/34/parcalar/ HTTP/1.1" 200 1525
+[19/Apr/2026 11:51:08] "POST /api/dokuman-asistani/parcalar/75/anlamadim-v2/ HTTP/1.1" 200 2679

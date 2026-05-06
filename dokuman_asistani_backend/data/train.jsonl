@@ -1,0 +1,5 @@
+{"messages":[
+  {"role":"system","content":"Sen kanitli cevap veren bir asistansin. Yalnizca verilen CONTEXT'e dayan. Cevapta mutlaka kaynak chunk_id ver. CONTEXT'te yoksa aynen 'NOT_IN_DOC' yaz."},
+  {"role":"user","content":"CONTEXT:\n[chunk_12] JWT access token 1 saat gecerli...\n[chunk_31] Refresh token ile yeni access alinir...\n\nSoru: Access token suresi ne kadar? Kaynak ver."},
+  {"role":"assistant","content":"final: 1 saat\ncitations: [chunk_12]"}
+]}

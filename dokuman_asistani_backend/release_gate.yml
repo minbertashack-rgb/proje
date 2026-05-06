@@ -1,0 +1,93 @@
+release_gate:
+  - path: dokuman/tests/test_special_chunk_explanations.py
+    critical: true
+    must_pass: false
+    acceptance_area: explain_anlamadim
+    category: benchmark
+    reason: code explanation golden / anti-hallucination
+  - path: dokuman/tests/test_upload_fields.py
+    critical: true
+    must_pass: true
+    acceptance_area: parsing_ingestion
+    category: api_contract
+    reason: upload contract, suspicious upload rejection, safe failure payload
+  - path: dokuman/tests/test_ocr_ingestion.py
+    critical: true
+    must_pass: true
+    acceptance_area: ocr
+    category: ingestion
+    reason: OCR parsing and response-safe OCR surface
+    requires: [TESSERACT]
+  - path: dokuman/tests/test_multiformat_ingestion.py
+    critical: true
+    must_pass: true
+    acceptance_area: parsing_ingestion
+    category: ingestion
+    reason: OCR / ingestion fallback
+    requires: [TESSERACT]
+  - path: dokuman/tests/test_views_hardening.py
+    critical: true
+    must_pass: true
+    acceptance_area: security_no_leak
+    category: security
+    reason: ownership isolation, no-leak, production debug gating
+  - path: dokuman/tests/test_patch2_auth_error_shapes.py
+    critical: true
+    must_pass: true
+    acceptance_area: auth_api_contract
+    category: api_contract
+    reason: auth error shape and additive token contract
+  - path: dokuman/tests/test_patch3_explain_evidence_notes_shapes.py
+    critical: true
+    must_pass: true
+    acceptance_area: notes_history
+    category: api_contract
+    reason: explain, evidence and notes response standardization
+  - path: dokuman/tests/test_patch6_throttle_shapes.py
+    critical: true
+    must_pass: true
+    acceptance_area: security_no_leak
+    category: security
+    reason: targeted throttle contract and safe 429 payloads
+  - path: dokuman/tests/test_anlamadim_quality.py
+    critical: true
+    must_pass: true
+    acceptance_area: explain_anlamadim
+    category: quality
+    reason: explanation quality floor and abstain behavior
+  - path: dokuman/tests/test_rag_quality.py
+    critical: true
+    must_pass: true
+    acceptance_area: retrieval_evidence
+    category: quality
+    reason: evidence alignment, citation correctness, weak/strong evidence behavior
+  - path: dokuman/tests/test_ai2_guardrails.py
+    critical: true
+    must_pass: false
+    acceptance_area: security_no_leak
+    category: security
+    reason: no-leak and guardrail surface
+  - path: dokuman/tests/test_ai2_runtime_tools.py
+    critical: true
+    must_pass: false
+    acceptance_area: retrieval_evidence
+    category: runtime
+    reason: runtime heuristics and tools
+  - path: dokuman/tests/test_ai_eval_contracts.py
+    critical: true
+    must_pass: false
+    acceptance_area: explain_anlamadim
+    category: contract
+    reason: eval payload and shape contracts
+  - path: dokuman/tests/test_notlar_productization.py
+    critical: false
+    must_pass: false
+    acceptance_area: notes_history
+    category: product
+    reason: notes persistence and ownership behavior
+  - path: dokuman/tests/test_rag_normalization.py
+    critical: false
+    must_pass: false
+    acceptance_area: retrieval_evidence
+    category: normalization
+    reason: optional; retrieval normalization and evidence shaping

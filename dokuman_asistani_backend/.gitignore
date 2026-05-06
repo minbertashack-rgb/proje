@@ -1,0 +1,9 @@
+﻿models/
+frontend/node_modules/
+frontend/dist/
+mobil/build/
+*.gguf
+*.exe
+__pycache__/
+*.pyc
+.env

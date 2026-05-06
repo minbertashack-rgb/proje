@@ -1,0 +1,22 @@
+Release Config Summary
+Config recommendation: ship
+Overall status: ok
+Checks: ok=10 warning=0 blocker=0
+
+Checklist:
+- [ok] python_version: Python version 3.14.4 | Minimum required version is 3.10.
+- [ok] debug_mode: DEBUG kapali. | Production debug gate temiz.
+- [ok] secret_key: DJANGO_SECRET_KEY override edilmis.
+- [ok] upload_limits: Upload byte limitleri makul gorunuyor. | min=8 max=26214400
+- [ok] throttle_rates: Riskli yuzey throttle rate'leri tanimli. | token_obtain=10/min, token_refresh=20/min, upload=12/hour, anlamadim=30/min, kanitli_cevap=20/min, notes_write=40/min
+- [ok] tesseract: Tesseract hazir. | candidate=C:\Program Files\Tesseract-OCR\tesseract.exe langs=eng,osd,tur
+- [ok] ai2_runtime: AI2 base URL / model / timeout tanimli. | base_url=http://127.0.0.1:8002/v1 model=qwen-docverse timeout=600
+- [ok] local_model: Yerel model fallback zorunlu degil veya devre disi.
+- [ok] cors_policy: CORS allow-all kapali.
+- [ok] jwt_policy: SIMPLE_JWT lifetime ayarlari tanimli.
+
+Final decision glue:
+- Final release karari icin bu config recommendation sonucu, release gate acceptance summary ile birlikte okunur.
+- Taraflardan biri no_ship ise final karar no_ship olur.
+- Hic no_ship yok ama herhangi biri ship_with_ops_note ise final karar ship_with_ops_note olur.
+- Iki taraf da ship ise final karar ship olur.

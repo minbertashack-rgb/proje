@@ -1,0 +1,12 @@
+pytest
+pytest-django
+Pillow
+Django
+djangorestframework
+PyMuPDF
+numpy
+scikit-learn
+python-docx
+python-pptx
+openpyxl
+xlrd

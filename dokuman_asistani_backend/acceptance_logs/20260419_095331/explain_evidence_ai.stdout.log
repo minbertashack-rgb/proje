@@ -1,0 +1,258 @@
+FF.........F............................................................ [ 42%]
+.............................................................F........F. [ 85%]
+.........................                                                [100%]
+================================== FAILURES ===================================
+_ test_parca_anlamadim_v2_endpoint_temel_alanlari_ve_benchmark_verisini_dondurur _
+
+db = None, test_kullanicisi = <User: parser_test_1e1da1a4>
+gecici_media_root = WindowsPath('C:/Windows/Temp/pytest-of-cemre/pytest-544/test_parca_anlamadim_v2_endpoi0/media')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001F06299E060>
+
+    def test_parca_anlamadim_v2_endpoint_temel_alanlari_ve_benchmark_verisini_dondurur(
+        db,
+        test_kullanicisi,
+        gecici_media_root,
+        monkeypatch,
+    ):
+        doc = Dokuman.objects.create(
+            owner=test_kullanicisi,
+            baslik="JWT Benchmark",
+            mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            durum="parcalandi",
+        )
+        doc.dosya.save("jwt-benchmark.docx", ContentFile(b"ornek"), save=True)
+    
+        parca = Parca.objects.create(
+            dokuman=doc,
+            sira=1,
+            tur="bolum",
+            adres="1",
+            metin=(
+                "JWT access token kullanicinin kimligini tasir. "
+                "Refresh token ile suresi dolan access token yenilenir."
+            ),
+            meta={"path": "1", "baslik": "JWT"},
+        )
+    
+        weak_json = {
+            "one_liner": "Bu parca basitce sunu soyluyor.",
+            "very_simple": "",
+            "glossary": [],
+            "steps": [""],
+            "examples": [],
+            "trap": "",
+            "mini_quiz": [],
+            "dokumanda_yok": False,
+        }
+    
+        chat_cagrilari = []
+    
+        def fake_chat(messages, max_tokens=256):
+            chat_cagrilari.append({"messages": messages, "max_tokens": max_tokens})
+            return json.dumps(weak_json, ensure_ascii=False)
+    
+        monkeypatch.setattr("dokuman.views.chat", fake_chat)
+    
+        client = APIClient()
+        client.force_authenticate(user=test_kullanicisi)
+    
+        response = client.post(
+            f"/api/dokuman-asistani/parcalar/{parca.id}/anlamadim-v2/",
+            {"mesaj": "Bu parcayi sade anlat.", "max_tokens": 96, "debug_ai2": True},
+            format="json",
+        )
+    
+        assert response.status_code == 200
+        data = response.data
+    
+        for alan in ("one_liner", "very_simple", "glossary", "steps", "examples", "trap", "mini_quiz", "dokumanda_yok"):
+            assert alan in data
+    
+        assert data["dokumanda_yok"] is False
+        assert isinstance(data["glossary"], list) and len(data["glossary"]) >= 1
+        assert isinstance(data["steps"], list) and len(data["steps"]) >= 3
+        assert isinstance(data["examples"], list) and len(data["examples"]) >= 2
+        assert isinstance(data["mini_quiz"], list) and len(data["mini_quiz"]) == 3
+        assert chat_cagrilari
+        assert chat_cagrilari[0]["max_tokens"] == 96
+>       assert data["debug_ai2"]["parca_sinifi"] == "kisa"
+               ^^^^^^^^^^^^^^^^^
+E       KeyError: 'debug_ai2'
+
+dokuman\tests\test_anlamadim_quality.py:545: KeyError
+____ test_parca_anlamadim_v2_endpoint_bozuk_jsonu_onarip_alanlari_doldurur ____
+
+db = None, test_kullanicisi = <User: parser_test_28526b47>
+gecici_media_root = WindowsPath('C:/Windows/Temp/pytest-of-cemre/pytest-544/test_parca_anlamadim_v2_endpoi1/media')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000001F064025370>
+
+    def test_parca_anlamadim_v2_endpoint_bozuk_jsonu_onarip_alanlari_doldurur(
+        db,
+        test_kullanicisi,
+        gecici_media_root,
+        monkeypatch,
+    ):
+        doc = Dokuman.objects.create(
+            owner=test_kullanicisi,
+            baslik="Broken JSON Benchmark",
+            mime="application/pdf",
+            durum="parcalandi",
+        )
+        doc.dosya.save("broken-json.pdf", ContentFile(b"ornek"), save=True)
+    
+        parca = Parca.objects.create(
+            dokuman=doc,
+            sira=1,
+            tur="bolum",
+            adres="txt:1",
+            metin="Excel | IF | XLOOKUP",
+            meta={"path": "txt:1", "baslik": "Etiketler"},
+        )
+    
+        broken_json = (
+            'Aciklama: {"one_liner":"Excel araclari birlikte listelenmis",'
+            '"very_simple":"Bu satir Excel notundaki temel etiketleri yan yana veriyor.",'
+            '"glossary":"IF: Kosula gore sonuc ureten Excel fonksiyonu.\\nXLOOKUP: Aranan degeri tabloda bulur.",'
+            '"steps":"1) Etiketleri ayir\\n2) Her birinin gorevini dusun",'
+            '"examples":"Bu satir temel Excel araclarini ayni notta toplar.",'
+            '"mini_quiz":"Q: IF ne yapar?\\nA: Kosula gore sonuc uretir."'
+        )
+    
+        def fake_chat(messages, max_tokens=256):
+            return broken_json
+    
+        monkeypatch.setattr("dokuman.views.chat", fake_chat)
+    
+        client = APIClient()
+        client.force_authenticate(user=test_kullanicisi)
+    
+        response = client.post(
+            f"/api/dokuman-asistani/parcalar/{parca.id}/anlamadim-v2/",
+            {"mesaj": "Bu satiri acikla.", "max_tokens": 96, "debug_ai2": True},
+            format="json",
+        )
+    
+        assert response.status_code == 200
+        data = response.data
+    
+        assert data["dokumanda_yok"] is False
+>       assert data["debug_ai2"]["json_bulundu_mu"] is True
+               ^^^^^^^^^^^^^^^^^
+E       KeyError: 'debug_ai2'
+
+dokuman\tests\test_anlamadim_quality.py:609: KeyError
+________ test_kanitli_sor_endpoint_returns_standardized_hits_and_ozet _________
+
+db = None, test_kullanicisi = <User: parser_test_d671494b>
+gecici_media_root = WindowsPath('C:/Windows/Temp/pytest-of-cemre/pytest-544/test_kanitli_sor_endpoint_retu0/media')
+
+    def test_kanitli_sor_endpoint_returns_standardized_hits_and_ozet(
+        db,
+        test_kullanicisi,
+        gecici_media_root,
+    ):
+        doc = Dokuman.objects.create(
+            owner=test_kullanicisi,
+            baslik="Lexical QA",
+            mime="application/pdf",
+            durum="parcalandi",
+        )
+        doc.dosya.save("lexical-qa.pdf", ContentFile(b"ornek"), save=True)
+    
+        Parca.objects.create(
+            dokuman=doc,
+            sira=1,
+            tur="bolum",
+            adres="Giris",
+            metin="RAG once ilgili parcayi bulur sonra kaynakli cevap uretir.",
+            meta={"path": "Giris"},
+        )
+        Parca.objects.create(
+            dokuman=doc,
+            sira=2,
+            tur="bolum",
+            adres="Ek",
+            metin="Baska bir teknik not.",
+            meta={"path": "Ek"},
+        )
+    
+        client = APIClient()
+        client.force_authenticate(user=test_kullanicisi)
+    
+        response = client.post(
+            f"/api/dokuman-asistani/dokumanlar/{doc.id}/sor/",
+            {"soru": "RAG once ne yapar?", "limit": 2},
+            format="json",
+        )
+    
+        assert response.status_code == 200
+        data = response.data
+        assert data["kanitlar"]
+>       assert data["kanitlar"][0]["dokuman_id"] == doc.id
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'dokuman_id'
+
+dokuman\tests\test_rag_quality.py:1561: KeyError
+_______ test_retrieve_evidence_standardized_preserves_canonical_fields ________
+
+    def test_retrieve_evidence_standardized_preserves_canonical_fields():
+        hits = retrieve_evidence_standardized(
+            "sql filtre nasil olur",
+            [
+                (10, "SQL > Giris", "SELECT ifadesiyle filtre uygulanir."),
+                (11, "Yetkisiz", "Baska bir not"),
+            ],
+            dokuman_id=55,
+            limit=2,
+        )
+    
+        assert hits
+        assert hits[0]["parca_id"] == 10
+>       assert hits[0]["dokuman_id"] == 55
+E       assert None == 55
+
+dokuman\tests\test_rag_quality.py:879: AssertionError
+___ test_build_evidence_response_payload_includes_safe_observability_flags ____
+
+    def test_build_evidence_response_payload_includes_safe_observability_flags():
+        meta = orchestrate_evidence_selection(
+            "jwt amaci nedir",
+            [
+                {
+                    "parca_id": 951,
+                    "dokuman_id": 61,
+                    "adres": "Guvenlik > JWT > Amac",
+                    "baslik_yolu": "Guvenlik > JWT > Amac",
+                    "metin": "JWT amaci istemci kimligini tasimak ve yetki bilgisini iletmektir.",
+                    "skor": 0.86,
+                    "retrieval_kaynagi": "rag.semantic",
+                    "chunk_index": 20,
+                },
+                {
+                    "parca_id": 952,
+                    "dokuman_id": 61,
+                    "adres": "Guvenlik > JWT > Yapi",
+                    "baslik_yolu": "Guvenlik > JWT > Yapi",
+                    "metin": "JWT yapisi header, payload ve signature bolumlerinden olusur.",
+                    "skor": 0.8,
+                    "retrieval_kaynagi": "rag.semantic",
+                    "chunk_index": 21,
+                },
+            ],
+            answer_limit=1,
+            dokuman_filtresi_var_mi=True,
+        )
+    
+        payload = build_evidence_response_payload(meta)
+    
+>       assert payload["kullanilan_kanitlar"][0]["komsu_var_mi"] is True
+E       assert False is True
+
+dokuman\tests\test_rag_quality.py:1222: AssertionError
+=========================== short test summary info ===========================
+FAILED dokuman/tests/test_anlamadim_quality.py::test_parca_anlamadim_v2_endpoint_temel_alanlari_ve_benchmark_verisini_dondurur
+FAILED dokuman/tests/test_anlamadim_quality.py::test_parca_anlamadim_v2_endpoint_bozuk_jsonu_onarip_alanlari_doldurur
+FAILED dokuman/tests/test_rag_quality.py::test_kanitli_sor_endpoint_returns_standardized_hits_and_ozet
+FAILED dokuman/tests/test_rag_quality.py::test_retrieve_evidence_standardized_preserves_canonical_fields
+FAILED dokuman/tests/test_rag_quality.py::test_build_evidence_response_payload_includes_safe_observability_flags
+5 failed, 164 passed in 38.41s

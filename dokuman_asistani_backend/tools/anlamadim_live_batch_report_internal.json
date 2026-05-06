@@ -1,0 +1,208 @@
+{
+  "base_url": "http://127.0.0.1:8001",
+  "transport": "internal",
+  "username": "cemre_demo",
+  "summary": {
+    "sample_count": 10,
+    "avg_score": 6.5,
+    "problem_counts": {
+      "weak_one_liner": 2,
+      "weak_very_simple": 2,
+      "weak_glossary": 1
+    },
+    "false_dokumanda_yok_count": 0,
+    "weak_glossary_count": 1,
+    "weak_steps_count": 0,
+    "weak_examples_count": 0,
+    "weak_mini_quiz_count": 0
+  },
+  "results": [
+    {
+      "parca_id": 36,
+      "adres": "txt:para:1",
+      "dokuman": "",
+      "snippet": "Bu bir deneme dokümanı. İçinde bazı terimler ve açıklamalar var.",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "Bu bir deneme dokümanı.",
+        "very_simple": "En basit haliyle bu parca, 'açıklamalar' etrafinda anlatilan fikri ozetliyor: Bu bir deneme dokümanı.",
+        "glossary_count": 4,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'açıklamalar' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      }
+    },
+    {
+      "parca_id": 42,
+      "adres": "docx:p:1",
+      "dokuman": "",
+      "snippet": "Test DOCX",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "Bu kisa parca, 'DOCX' odakli bir not veya etiket veriyor.",
+        "very_simple": "En basit haliyle bu parca, 'DOCX' etrafinda anlatilan fikri ozetliyor: Bu kisa parca, 'DOCX' odakli bir not veya etiket veriyor.",
+        "glossary_count": 1,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'DOCX' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      }
+    },
+    {
+      "parca_id": 45,
+      "adres": "docx:tablo:1:satir:2",
+      "dokuman": "",
+      "snippet": "100 | 200 | 300",
+      "dokumanda_yok": false,
+      "score": 4,
+      "problems": [
+        "weak_one_liner",
+        "weak_very_simple",
+        "weak_glossary"
+      ],
+      "response": {
+        "one_liner": "100 | 200 | 300",
+        "very_simple": "En basit haliyle bu parca sunu soyluyor: 100 | 200 | 300",
+        "glossary_count": 0,
+        "steps_count": 3,
+        "examples_count": 2,
+        "trap": "Tuzak: Metindeki tek bir cumleyi alip parcadaki ana fikrin tamami sanmak.",
+        "mini_quiz_count": 3
+      }
+    },
+    {
+      "parca_id": 44,
+      "adres": "docx:tablo:1:satir:1",
+      "dokuman": "",
+      "snippet": "SUTUN1 | SUTUN2 | SUTUN3",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "Bu kisa parca, 'SUTUN1' odakli bir not veya etiket veriyor.",
+        "very_simple": "En basit haliyle bu parca, 'SUTUN1' etrafinda anlatilan fikri ozetliyor: Bu kisa parca, 'SUTUN1' odakli bir not veya etiket veriyor.",
+        "glossary_count": 3,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'SUTUN1' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      }
+    },
+    {
+      "parca_id": 46,
+      "adres": "docx:tablo:1:satir:3",
+      "dokuman": "",
+      "snippet": "Excel: IF / XLOOKUP | A2 | B2",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "Excel: IF / XLOOKUP | A2 | B2",
+        "very_simple": "En basit haliyle bu parca, 'IF' etrafinda anlatilan fikri ozetliyor: Excel: IF / XLOOKUP | A2 | B2",
+        "glossary_count": 4,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'IF' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      }
+    },
+    {
+      "parca_id": 43,
+      "adres": "docx:p:2",
+      "dokuman": "",
+      "snippet": "RLS, JWT, API Gateway gibi terimler gecsin. SQL: SELECT * FROM users WHERE id=1;",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "RLS, JWT, API Gateway gibi terimler gecsin.",
+        "very_simple": "En basit haliyle bu parca, 'RLS' etrafinda anlatilan fikri ozetliyor: RLS, JWT, API Gateway gibi terimler gecsin.",
+        "glossary_count": 4,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'RLS' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      }
+    },
+    {
+      "parca_id": 48,
+      "adres": "pdf:sayfa:2:para:1",
+      "dokuman": "",
+      "snippet": "PDF Test - Sayfa 2\nExcel: IF / XLOOKUP; TABLO: A|B|C",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "PDF Test - Sayfa 2 Excel: IF / XLOOKUP; TABLO: A|B|C",
+        "very_simple": "En basit haliyle bu parca, 'PDF' etrafinda anlatilan fikri ozetliyor: PDF Test - Sayfa 2 Excel: IF / XLOOKUP; TABLO: A|B|C",
+        "glossary_count": 4,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'PDF' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      }
+    },
+    {
+      "parca_id": 47,
+      "adres": "pdf:sayfa:1:para:1",
+      "dokuman": "",
+      "snippet": "PDF Test - Sayfa 1\nJWT / RLS / SQL: SELECT * FROM logs WHERE ts > NOW();",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "PDF Test - Sayfa 1 JWT / RLS / SQL: SELECT * FROM logs WHERE ts > NOW();",
+        "very_simple": "En basit haliyle bu parca, 'PDF' etrafinda anlatilan fikri ozetliyor: PDF Test - Sayfa 1 JWT / RLS / SQL: SELECT * FROM logs WHERE ts > NOW();",
+        "glossary_count": 4,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'PDF' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      }
+    },
+    {
+      "parca_id": 51,
+      "adres": "xlsx:Sayfa1:satir:3",
+      "dokuman": "",
+      "snippet": "Excel | IF | XLOOKUP",
+      "dokumanda_yok": false,
+      "score": 5,
+      "problems": [
+        "weak_one_liner",
+        "weak_very_simple"
+      ],
+      "response": {
+        "one_liner": "Bu kisa parca, 'IF' odakli bir not veya etiket veriyor.",
+        "very_simple": "En basit haliyle bu parca, 'IF' etrafinda anlatilan fikri ozetliyor: Bu kisa parca, 'IF' odakli bir not veya etiket veriyor.",
+        "glossary_count": 3,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'IF' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      }
+    },
+    {
+      "parca_id": 52,
+      "adres": "pptx:slayt:1",
+      "dokuman": "",
+      "snippet": "JWT / RLS / SQL\nExcel: IF / XLOOKUP",
+      "dokumanda_yok": false,
+      "score": 7,
+      "problems": [],
+      "response": {
+        "one_liner": "JWT / RLS / SQL Excel: IF / XLOOKUP",
+        "very_simple": "En basit haliyle bu parca, 'JWT' etrafinda anlatilan fikri ozetliyor: JWT / RLS / SQL Excel: IF / XLOOKUP",
+        "glossary_count": 4,
+        "steps_count": 3,
+        "examples_count": 3,
+        "trap": "Tuzak: 'JWT' terimini tek basina ezberleyip, metindeki gorevini kacirmak.",
+        "mini_quiz_count": 3
+      }
+    }
+  ]
+}
