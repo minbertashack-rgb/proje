@@ -1,0 +1,13 @@
+﻿.conda/
+.pytest_cache/
+**/node_modules/
+**/build/
+**/dist/
+**/__pycache__/
+**/*.pyc
+**/.env
+**/*.gguf
+**/*.exe
+**/*.sqlite3
+**/media/
+**/release_logs/
