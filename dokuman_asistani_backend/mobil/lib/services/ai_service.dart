@@ -8,7 +8,9 @@ import '../core/network/api_client.dart';
 import '../core/utils/parse_utils.dart';
 import '../features/explain/data/directors_cut_response.dart';
 import '../features/explain/data/explain_response.dart';
+import '../features/explain/data/learning_game_response.dart';
 import '../features/explain/data/remix_response.dart';
+import '../features/explain/data/self_check_response.dart';
 import '../features/preferences/data/learning_preferences.dart';
 import '../features/qa/data/evidence_answer.dart';
 
@@ -148,6 +150,67 @@ class AiService {
       timeoutMessage: _aiTimeoutMessage,
     );
     return DirectorsCutResponse.fromDynamic(response);
+  }
+
+  Future<SelfCheckResponse> requestSelfCheck({
+    required int partId,
+    required String answer,
+    String? lang,
+    LearningPreferences? preferences,
+  }) async {
+    final language = lang?.trim().isNotEmpty == true
+        ? lang!.trim()
+        : AppLanguageController.normalize(appLanguageController.value);
+    final response = await _apiClient.post(
+      AppConstants.selfCheckEndpoint(partId),
+      body: {
+        'answer': answer.trim(),
+        if (preferences != null) 'preferences': preferences.toJson(),
+        'lang': language,
+      },
+      timeout: AppConfig.aiRequestTimeout,
+      timeoutMessage: _aiTimeoutMessage,
+    );
+    return SelfCheckResponse.fromDynamic(response);
+  }
+
+  Future<QuizRouletteResponse> requestQuizRoulette({
+    required int partId,
+    LearningPreferences? preferences,
+  }) async {
+    final response = await _apiClient.post(
+      AppConstants.quizRouletteEndpoint(partId),
+      body: {if (preferences != null) 'preferences': preferences.toJson()},
+      timeout: AppConfig.aiRequestTimeout,
+      timeoutMessage: _aiTimeoutMessage,
+    );
+    return QuizRouletteResponse.fromDynamic(response);
+  }
+
+  Future<EscapeRoomResponse> requestEscapeRoom({
+    required int partId,
+    LearningPreferences? preferences,
+  }) async {
+    final response = await _apiClient.post(
+      AppConstants.escapeRoomEndpoint(partId),
+      body: {if (preferences != null) 'preferences': preferences.toJson()},
+      timeout: AppConfig.aiRequestTimeout,
+      timeoutMessage: _aiTimeoutMessage,
+    );
+    return EscapeRoomResponse.fromDynamic(response);
+  }
+
+  Future<SpeedrunResponse> requestSpeedrun({
+    required int partId,
+    LearningPreferences? preferences,
+  }) async {
+    final response = await _apiClient.post(
+      AppConstants.speedrunEndpoint(partId),
+      body: {if (preferences != null) 'preferences': preferences.toJson()},
+      timeout: AppConfig.aiRequestTimeout,
+      timeoutMessage: _aiTimeoutMessage,
+    );
+    return SpeedrunResponse.fromDynamic(response);
   }
 
   @visibleForTesting
